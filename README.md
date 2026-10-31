@@ -2,7 +2,7 @@
 
 This lab runs an Inventory application with two replicas and one client on Kubernetes. The client sends one request per second to `http://inventory:8080/inventory` using the Kubernetes Service name instead of individual Pod addresses.
 
-## Architecture
+## Architecture Diagram
 
 ```mermaid
 flowchart TD
