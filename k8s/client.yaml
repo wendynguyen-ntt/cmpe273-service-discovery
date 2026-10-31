@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client
+  namespace: inventory-lab
+  labels:
+    app: inventory-client
+spec:
+  containers:
+    - name: client
+      image: inventory:1.0
+      imagePullPolicy: IfNotPresent
+      command: ["python", "-u", "-c"]
+      args:
+        - |
+          import json
+          import time
+          import urllib.request
+          from datetime import datetime, timezone
+
+          url = "http://inventory:8080/inventory"
+          count = 0
+
+          while True:
+              count += 1
+              timestamp = datetime.now(timezone.utc).isoformat(
+                  timespec="seconds"
+              )
+
+              try:
+                  request = urllib.request.Request(
+                      url, headers={"Connection": "close"}
+                  )
+                  with urllib.request.urlopen(request, timeout=2) as response:
+                      body = json.load(response)
+                      print(
+                          f"{timestamp} request={count} "
+                          f"url={url} status={response.status} "
+                          f"pod={body['pod']}"
+                      )
+              except Exception as error:
+                  print(
+                      f"{timestamp} request={count} "
+                      f"url={url} ERROR={error}"
+                  )
+
+              time.sleep(1)

@@ -1,0 +1,1 @@
+pod "inventory-69dbddc45f-8b4rx" deleted from inventory-lab namespace

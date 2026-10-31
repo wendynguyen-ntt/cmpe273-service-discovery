@@ -1,0 +1,4 @@
+NAME                         READY   STATUS    RESTARTS   AGE     IP         NODE             NOMINATED NODE   READINESS GATES
+client                       1/1     Running   0          3m57s   10.1.0.8   docker-desktop   <none>           <none>
+inventory-69dbddc45f-8b4rx   0/1     Running   0          13m     10.1.0.6   docker-desktop   <none>           <none>
+inventory-69dbddc45f-qtmsx   1/1     Running   0          13m     10.1.0.7   docker-desktop   <none>           <none>

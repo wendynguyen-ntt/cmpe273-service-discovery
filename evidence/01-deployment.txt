@@ -1,0 +1,9 @@
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES          SELECTOR
+deployment.apps/inventory   2/2     2            2           48s   inventory    inventory:1.0   app=inventory
+
+NAME                             READY   STATUS    RESTARTS   AGE   IP         NODE             NOMINATED NODE   READINESS GATES
+pod/inventory-69dbddc45f-8b4rx   1/1     Running   0          48s   10.1.0.6   docker-desktop   <none>           <none>
+pod/inventory-69dbddc45f-qtmsx   1/1     Running   0          48s   10.1.0.7   docker-desktop   <none>           <none>
+
+NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/inventory   ClusterIP   10.110.37.78   <none>        8080/TCP   48s   app=inventory
